@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Servicios - Tactika Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <span class="logo">
+      <a href="index.html">
+        <img src="logo.webp" alt="Tactika Consulting">
+      </a>
+    </span>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="quienes-somos.html">Quiénes Somos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <header>
+    <h1>Nuestros Servicios</h1>
+    <p>Soluciones prácticas y personalizadas para tu PyME.</p>
+  </header>
+  <section>
+    <div class="servicio">
+      <img src="estategy .webp" alt="Diagnóstico Express">
+      <h3>Plan Emprende</h3>
+      <p><strong>Diagnóstico Express PyME</strong></p>
+      <p><em>Descubre en qué está tu negocio y qué puedes mejorar, ¡en solo una sesión!</em></p>
+      <p><strong>$29.000 CLP</strong></p>
+      <button class="btn" onclick="abrirModal('Plan Emprende')">¡Quiero este plan!</button>
+    </div>
+    <div class="servicio">
+      <img src="image.webp" alt="Plan Escala">
+      <h3>Plan Escala</h3>
+      <p><strong>Diagnóstico + Plan de Acción Personalizado</strong></p>
+      <p><em>Te decimos qué hacer y cómo, con un plan hecho solo para ti.</em></p>
+      <p><strong>$59.000 CLP</strong></p>
+      <button class="btn" onclick="abrirModal('Plan Escala')">¡Me interesa!</button>
+    </div>
+    <div class="servicio">
+      <img src="banner.webp" alt="Plan Control Total">
+      <h3>Plan Control Total</h3>
+      <p><strong>Acompañamiento Mensual PyME</strong></p>
+      <p><em>Te apoyamos mes a mes para que tu negocio nunca se detenga.</em></p>
+      <p><strong>$119.000 CLP/mes</strong></p>
+      <button class="btn" onclick="abrirModal('Plan Control Total')">Quiero acompañamiento</button>
+    </div>
+    <div class="servicio">
+      <img src="image.webp" alt="Plan Finanzas Claras">
+      <h3>Plan Finanzas Claras</h3>
+      <p><strong>Reporte Financiero Mensual</strong></p>
+      <p><em>Entiende tus números y toma mejores decisiones.</em></p>
+      <p><strong>$69.000 CLP/mes</strong></p>
+      <button class="btn" onclick="abrirModal('Plan Finanzas Claras')">¡Quiero claridad!</button>
+    </div>
+    <div class="servicio">
+      <img src="contacto.webp" alt="Plan Intensivo 1:1">
+      <h3>Plan Intensivo 1:1</h3>
+      <p><strong>Asesoría Especializada</strong></p>
+      <p><em>Resuelve tus dudas con un experto, cuando lo necesites.</em></p>
+      <p><strong>$45.000 CLP</strong></p>
+      <button class="btn" onclick="abrirModal('Plan Intensivo 1:1')">Reservar sesión</button>
+    </div>
+  </section>
+  <a href="https://wa.me/56964295330" class="btn-whatsapp" target="_blank" title="Escríbenos por WhatsApp">💬</a>
+  <footer>
+    <p>© 2024 Tactika Consulting. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Modal Formulario Plan -->
+  <div id="modalPlan" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(30,136,229,0.15);z-index:999;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:30px 20px;border-radius:10px;max-width:400px;width:90%;box-shadow:0 2px 16px rgba(30,136,229,0.15);position:relative;">
+      <button onclick="cerrarModal()" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:1.5em;cursor:pointer;color:#1e88e5;">&times;</button>
+      <h2 id="tituloPlan">Consulta Plan</h2>
+      <form id="formPlan" action="https://formspree.io/f/meokrpyp" method="POST">
+        <input type="hidden" name="plan" id="inputPlan">
+        <input type="text" name="nombre" placeholder="Nombre completo" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefono" placeholder="Teléfono">
+        <textarea name="mensaje" placeholder="Mensaje"></textarea>
+        <button class="btn" type="submit">Consultar este plan</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function abrirModal(plan) {
+      document.getElementById('modalPlan').style.display = 'flex';
+      document.getElementById('tituloPlan').innerText = 'Consulta: ' + plan;
+      document.getElementById('inputPlan').value = plan;
+    }
+    function cerrarModal() {
+      document.getElementById('modalPlan').style.display = 'none';
+    }
+    // Cierra el modal al hacer click fuera del formulario
+    window.onclick = function(event) {
+      var modal = document.getElementById('modalPlan');
+      if (event.target == modal) { modal.style.display = "none"; }
+    }
+  </script>
+</body>
+</html>
